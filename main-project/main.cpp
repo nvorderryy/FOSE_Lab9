@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int main()
     setlocale(LC_ALL, "Russian");
     cout << "Лабораторная работа №8. GIT\n";
     cout << "Вариант №5. Протокол Интернет\n";
-    cout << "Автор: Egor Kuznechik\n\n";
+    cout << "Автор: Егор Кузнечик\n\n";
 
     internet_protocol* protocols[MAX_FILE_ROWS_COUNT];
     int size;
@@ -19,17 +20,29 @@ int main()
     try
     {
         read("data.txt", protocols, size);
+        cout << "***** Протокол Интернет *****\n\n";
         for (int i = 0; i < size; i++)
         {
-            cout << protocols[i]->start.hours << ':';
-            cout << protocols[i]->start.minutes << ':';
-            cout << protocols[i]->start.seconds << '\n';
-            cout << protocols[i]->finish.hours << ':';
-            cout << protocols[i]->finish.minutes << ':';
-            cout << protocols[i]->finish.seconds << '\n';
-            cout << protocols[i]->receive.kbytes << '\n';
-            cout << protocols[i]->send.kbytes << '\n';
-            cout << protocols[i]->path << '\n';
+            /********** вывод времени начала **********/
+            cout << "Время начала...: ";
+            cout << setw(2) << setfill('0') << protocols[i]->start.hours << ':';
+            cout << setw(2) << setfill('0') << protocols[i]->start.minutes << ':';
+            cout << setw(2) << setfill('0') << protocols[i]->start.seconds << '\n';
+
+            /********** вывод времени окончания **********/
+            cout << "Время окончания: ";
+            cout << setw(2) << setfill('0') << protocols[i]->finish.hours << ':';
+            cout << setw(2) << setfill('0') << protocols[i]->finish.minutes << ':';
+            cout << setw(2) << setfill('0') << protocols[i]->finish.seconds << '\n';
+
+            /********** вывод полученных данных **********/
+            cout << "Получено.......: " << protocols[i]->receive.kbytes << " кбайт\n";
+
+            /********** вывод отправленных данных **********/
+            cout << "Отправлено.....: " << protocols[i]->send.kbytes << " кбайт\n";
+
+            /********** вывод пути **********/
+            cout << "Путь...........: " << protocols[i]->path << '\n';
             cout << '\n';
         }
         for (int i = 0; i < size; i++)
