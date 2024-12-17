@@ -12,14 +12,15 @@ int main()
     setlocale(LC_ALL, "Russian");
     cout << "Лабораторная работа №8. GIT\n";
     cout << "Вариант №5. Протокол Интернет\n";
-    cout << "Автор: Егор Кузнечик\n\n";
+    cout << "Автор: Егор Кузнечик\n";
+    cout << "Группа: 24ПИнж1д\n\n";
 
     internet_protocol* protocols[MAX_FILE_ROWS_COUNT];
     int size;
 
     try
     {
-        read("data.txt", protocols, size);
+        read ("data.txt", protocols, size);
         cout << "***** Протокол Интернет *****\n\n";
         for (int i = 0; i < size; i++)
         {
