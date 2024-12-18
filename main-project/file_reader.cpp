@@ -1,19 +1,18 @@
 #include "file_reader.h"
 #include "constants.h"
-
 #include <fstream>
 #include <cstring>
 
 time1 convert_to_time(char* str)
 {
-    time1 result;
+    time1 result = { 0, 0, 0 }; 
     char* context = NULL;
     char* str_number = strtok_s(str, ":", &context);
-    result.hours = atoi(str_number);
+    if (str_number != NULL) result.hours = atoi(str_number);
     str_number = strtok_s(NULL, ":", &context);
-    result.minutes = atoi(str_number);
+    if (str_number != NULL) result.minutes = atoi(str_number);
     str_number = strtok_s(NULL, ":", &context);
-    result.seconds = atoi(str_number);
+    if (str_number != NULL) result.seconds = atoi(str_number);
     return result;
 }
 
