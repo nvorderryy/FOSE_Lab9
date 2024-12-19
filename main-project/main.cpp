@@ -46,7 +46,7 @@ int main()
             output(protocols[i]);
         }
 
-        bool (*check_function)(internet_protocol*) = NULL; // Функция проверки, возвращающая bool и принимающая internet_protocol*
+        bool (*check_function)(internet_protocol*) = NULL; 
         cout << "\nВыберите действие:\n";
         cout << "1) Фильтр по программе Skype\n";
         cout << "2) Фильтр по времени после 08:00:00\n";

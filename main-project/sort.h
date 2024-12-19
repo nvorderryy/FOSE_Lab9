@@ -8,4 +8,4 @@ void quick_sort(internet_protocol* array[], int low, int high, int (*compare)(co
 int compare_by_usage_time(const internet_protocol* a, const internet_protocol* b);
 int compare_by_program_and_data(const internet_protocol* a, const internet_protocol* b);
 
-#endif // SORT_H
+#endif 
