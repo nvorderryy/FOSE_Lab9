@@ -7,7 +7,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace unittestproject
 {
-    // Утилита для создания структуры протокола
+
     internet_protocol build_protocol(int start_h, int start_m, int start_s, int finish_h, int finish_m, int finish_s, const char* path)
     {
         internet_protocol protocol;
@@ -17,7 +17,7 @@ namespace unittestproject
         protocol.finish.hours = finish_h;
         protocol.finish.minutes = finish_m;
         protocol.finish.seconds = finish_s;
-        strcpy(protocol.path, path);
+        strcpy_s(protocol.path, path);
         return protocol;
     }
 
@@ -51,6 +51,6 @@ namespace unittestproject
             Assert::AreEqual(210, process(protocols, 3, "Program1")); // Общее время 210 секунд
         }
 
-        // Добавьте свои собственные тесты здесь
+        
     };
 }
